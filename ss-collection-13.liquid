@@ -711,7 +711,8 @@ For inquiries or permissions, contact daniel@section.store
     }
 
     .image-text-media-{{ section.id }} {
-      height: {{ image_height_mobile }}px;
+      height: auto !important;
+      min-height: {{ image_height_mobile }}px;
     }
 
     .image-text-heading-{{ section.id }} * {
