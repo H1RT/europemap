@@ -693,63 +693,33 @@ For inquiries or permissions, contact daniel@section.store
 </div>
 
 <style>
-  /* ===== Mobile overlay: text over image (<=1023px) ===== */
   @media (max-width: 1023px) {
-    /* Put slide in a positioning context and remove the gap between media/content */
     .image-text-slide-{{ section.id }} {
-      position: relative;
-      gap: 0 !important;
+      position: static;
+      gap: {{ slide_gap_mobile }}px !important;
     }
 
-    /* Keep your configured mobile image height */
-    .image-text-media-{{ section.id }} {
-      height: {{ image_height_mobile }}px !important;
-    }
-
-    /* Make the content sit on top of the image */
     .image-text-content-{{ section.id }} {
-      position: absolute;
-      inset: 0;                       /* top/right/bottom/left: 0 */
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;        /* center the text vertically */
-      align-items: center;            /* center the text horizontally */
-      padding: {{ content_padding_vertical_mobile }}px {{ content_padding_horizontal_mobile }}px;
-      box-sizing: border-box;
-
-      /* Match the image rounding so overlay fits perfectly */
-      border-radius: {{ image_radius }}px;
+      position: static;
+      inset: auto;
+      z-index: auto;
+      border-radius: {{ content_radius }}px;
     }
 
-    /* Ensure the image has the same rounding and clips underneath */
-    .image-text-image-{{ section.id }} {
-      border-radius: {{ image_radius }}px !important;
-      overflow: hidden;
-      max-width: 100% !important;
-      height: 100% !important;
+    .image-text-media-{{ section.id }} {
+      height: {{ image_height_mobile }}px;
     }
 
-    /* Optional: tighten mobile typography inside the overlay */
     .image-text-heading-{{ section.id }} * {
-      font-size: {{ heading_size_mobile | minus: 2 }}px !important;
-      line-height: {{ heading_height }}% !important;
-      text-align: center !important;
+      text-align: {{ heading_align_mobile }} !important;
     }
+
     .image-text-subheading-{{ section.id }} * {
-      font-size: {{ sub_heading_size_mobile }}px !important;
-      line-height: {{ sub_heading_height }}% !important;
-      text-align: center !important;
+      text-align: {{ sub_heading_align_mobile }} !important;
     }
+
     .image-text-text-{{ section.id }} * {
-      font-size: {{ text_size_mobile | minus: 2 }}px !important;
-      line-height: {{ text_height }}% !important;
-      text-align: center !important;
-    }
-    .image-text-button-{{ section.id }} {
-      margin-top: {{ button_mt | times: 0.75 | round: 0 }}px !important;
-      font-size: {{ button_size_mobile }}px !important;
-      padding: {{ button_padding_vertical_mobile }}px {{ button_padding_horizontal_mobile }}px !important;
+      text-align: {{ text_align_mobile }} !important;
     }
   }
 </style>
