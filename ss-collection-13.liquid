@@ -225,7 +225,7 @@ For inquiries or permissions, contact daniel@section.store
     display: flex;
     justify-content: center;
     position: relative;
-    height: {{ image_height_mobile }}px;
+    height: auto;
   }
 
   .image-text-image-{{ section.id }} {
@@ -240,9 +240,8 @@ For inquiries or permissions, contact daniel@section.store
   .image-text-image-{{ section.id }} svg {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    max-height: {{section.settings.image_height_desktop}}px;
+    height: auto;
+    object-fit: contain;
   }
 
   .image-text-image-{{ section.id }} svg {
@@ -343,7 +342,12 @@ For inquiries or permissions, contact daniel@section.store
 
     .image-text-image-{{ section.id }} {
       max-width: 100%;
-      height: 100%;
+    }
+
+    .image-text-image-{{ section.id }} img,
+    .image-text-image-{{ section.id }} svg {
+      height: auto;
+      object-fit: contain;
     }
     
     .image-text-pagination-{{ section.id }} {
